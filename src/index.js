@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import {Provider,connect} from 'react-redux';
+import {createStore} from 'redux';
+
+
 import './index.css';
 //import Card from './Card';
 import App from './containers/App';
@@ -7,7 +12,13 @@ import * as serviceWorker from './serviceWorker';
 import 'tachyons'
 //import {robots} from './robot';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+import {searchRobots} from './reducers';
+
+
+const store=createStore(searchRobots)
+
+ReactDOM.render(<App store={store} />, document.getElementById('root'));
 
 //ReactDOM.render(
 //	<div>
